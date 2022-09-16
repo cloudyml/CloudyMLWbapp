@@ -1,0 +1,231 @@
+{
+  "project_info": {
+    "project_number": "67056708090",
+    "firebase_url": "https://cloudyml-app-default-rtdb.firebaseio.com",
+    "project_id": "cloudyml-app",
+    "storage_bucket": "cloudyml-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:67056708090:android:c1d1746d931d7dfd6ddc43",
+        "android_client_info": {
+          "package_name": "com.cloudyml.cloudymlapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "67056708090-204m5o5sqnqlgqc87j45h6icfbke6e3b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cloudyml.cloudymlapp",
+            "certificate_hash": "f4ca35cb4b6f2af13deff188fc2a9e7a6180491e"
+          }
+        },
+        {
+          "client_id": "67056708090-49s390v6rluisb8ggana7nm2rs6u1nji.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cloudyml.cloudymlapp",
+            "certificate_hash": "138ab6e6521dce2f9df385a815db1fc6485cf62b"
+          }
+        },
+        {
+          "client_id": "67056708090-7qk2uaprll0jgdtepm9neps57hp94p70.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cloudyml.cloudymlapp",
+            "certificate_hash": "7e9a839429c9e5e793a0dbd41ac1c1471e80eab6"
+          }
+        },
+        {
+          "client_id": "67056708090-f1iksc9hv0of6qtefp0bo8tapl3j0fsg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cloudyml.cloudymlapp",
+            "certificate_hash": "831eeb0301fe1149d617856da8a6350ac9a55736"
+          }
+        },
+        {
+          "client_id": "67056708090-f7412nd7jpe1k5k473tcp43ujn9noupu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cloudyml.cloudymlapp",
+            "certificate_hash": "2a4650184b940e51f2c87368708e986b0cebf2c3"
+          }
+        },
+        {
+          "client_id": "67056708090-u3vo9r408cu9q3919q3vceon4orq8bau.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cloudyml.cloudymlapp",
+            "certificate_hash": "b3d913fdbcaaa8bad576951fcba20c9923a4ad2a"
+          }
+        },
+        {
+          "client_id": "67056708090-ilmalptf2nehne9li3kn2it4q4q2mhg2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjeM1nHxStEbUaUoryKEmu3wKE9-96p8c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "67056708090-ilmalptf2nehne9li3kn2it4q4q2mhg2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "67056708090-bf7h7sseku64ctdhrg0inglm8af9i8p3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.cloudyml.cloudymlapp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:67056708090:android:8856c780a79facac6ddc43",
+        "android_client_info": {
+          "package_name": "com.cloudyml.cloudymlcourseapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "67056708090-70cvfd5etm6jrj0au0u924kscm4cardq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cloudyml.cloudymlcourseapp",
+            "certificate_hash": "138ab6e6521dce2f9df385a815db1fc6485cf62b"
+          }
+        },
+        {
+          "client_id": "67056708090-h1m95s771tbubdalrr2kiif1mgbiinpk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cloudyml.cloudymlcourseapp",
+            "certificate_hash": "de3beeaaea72657a529d25619d6f3355aec24137"
+          }
+        },
+        {
+          "client_id": "67056708090-jmc9is9etkn1l9cree0rdvp0fpsjfvlf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cloudyml.cloudymlcourseapp",
+            "certificate_hash": "7e9a839429c9e5e793a0dbd41ac1c1471e80eab6"
+          }
+        },
+        {
+          "client_id": "67056708090-nh4ogm4a0hgg94bvkmdg11tpu83h6mqk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cloudyml.cloudymlcourseapp",
+            "certificate_hash": "831eeb0301fe1149d617856da8a6350ac9a55736"
+          }
+        },
+        {
+          "client_id": "67056708090-ilmalptf2nehne9li3kn2it4q4q2mhg2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjeM1nHxStEbUaUoryKEmu3wKE9-96p8c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "67056708090-ilmalptf2nehne9li3kn2it4q4q2mhg2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "67056708090-bf7h7sseku64ctdhrg0inglm8af9i8p3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.cloudyml.cloudymlapp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:67056708090:android:90402fd1a241ec5c6ddc43",
+        "android_client_info": {
+          "package_name": "com.example.cloudyml_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "67056708090-9h8p8gisr4dou7hju9vo6f2sse0vqidc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cloudyml_app",
+            "certificate_hash": "ae0abbab7a75159ad815a21ba294be3b26b8502a"
+          }
+        },
+        {
+          "client_id": "67056708090-iq4iq56e497fv4ansvcmpd6se57cggmb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cloudyml_app",
+            "certificate_hash": "b3d913fdbcaaa8bad576951fcba20c9923a4ad2a"
+          }
+        },
+        {
+          "client_id": "67056708090-kbo75q6hb3t90vdbjd3suajnnvppdli0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cloudyml_app",
+            "certificate_hash": "7e9a839429c9e5e793a0dbd41ac1c1471e80eab6"
+          }
+        },
+        {
+          "client_id": "67056708090-ooc1b245vdah4sqj0hepl08n5q0vq4su.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cloudyml_app",
+            "certificate_hash": "138ab6e6521dce2f9df385a815db1fc6485cf62b"
+          }
+        },
+        {
+          "client_id": "67056708090-ilmalptf2nehne9li3kn2it4q4q2mhg2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjeM1nHxStEbUaUoryKEmu3wKE9-96p8c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "67056708090-ilmalptf2nehne9li3kn2it4q4q2mhg2.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "67056708090-bf7h7sseku64ctdhrg0inglm8af9i8p3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.cloudyml.cloudymlapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
