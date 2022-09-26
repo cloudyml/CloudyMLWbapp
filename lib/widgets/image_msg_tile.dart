@@ -6,7 +6,7 @@ import 'dart:io';
 class ImageMsgTile extends StatefulWidget {
   final Map<String, dynamic>? map;
   final String? displayName;
-  final Directory? appStorage;
+  final String? appStorage;
   ImageMsgTile({this.map, this.displayName, this.appStorage});
 
   @override
@@ -17,10 +17,10 @@ class _ImageMsgTileState extends State<ImageMsgTile> {
   var filePath;
 
   String? checkImageExists(fileName) {
-    final file = File("${widget.appStorage!.path}/$fileName");
+    final file = File("${widget.appStorage}/$fileName");
 
     if (!file.existsSync()) {
-      final file = File("${widget.appStorage!.path}/$fileName");
+      final file = File("${widget.appStorage}/$fileName");
       downloadFile(widget.map!["link"], fileName, file);
       return null;
     } else {
@@ -49,14 +49,6 @@ class _ImageMsgTileState extends State<ImageMsgTile> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(25),
             color: Color(0xFF7860DC),
-            // gradient: const RadialGradient(
-            //     center: Alignment.topRight,
-            //     // near the top right
-            //     radius: 6,
-            //     colors: [
-            //       Colors.purple,
-            //       Colors.blue,
-            //     ]),
           ),
           alignment: Alignment.center,
           child: widget.map!['link'] != ""

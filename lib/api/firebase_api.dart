@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:cloudyml_app2/models/firebase_file.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:path_provider/path_provider.dart';
+//import 'package:path_provider/path_provider.dart';
 
 class FirebaseApi {
   static Future<List<String>> _getDownloadLinks(List<Reference> refs) =>
@@ -28,9 +28,9 @@ class FirebaseApi {
   }
 
   static Future downloadFile(Reference ref) async {
-    final dir = await getApplicationDocumentsDirectory();
+    /*final dir = await getApplicationDocumentsDirectory();
     final file = File('${dir.path}/${ref.name}');
 
-    await ref.writeToFile(file);
+    await ref.writeToFile(file);*/
   }
 }

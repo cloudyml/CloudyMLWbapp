@@ -14,7 +14,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 import 'package:lottie/lottie.dart';
-import 'package:path_provider/path_provider.dart';
+//import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:video_player/video_player.dart';
 
@@ -222,7 +222,7 @@ class _VideoScreenState extends State<VideoScreen> {
     String? courseName,
     String? topicName,
   }) async {
-    getPermission();
+    /*getPermission();
     var directory = await getApplicationDocumentsDirectory();
     try {
       setState(() {
@@ -260,7 +260,7 @@ class _VideoScreenState extends State<VideoScreen> {
       });
     } catch (e) {
       print('e::$e');
-    }
+    }*/
   }
 
   @override
@@ -708,7 +708,7 @@ class _VideoScreenState extends State<VideoScreen> {
                       ),
                       trailing: InkWell(
                         onTap: () async {
-                          var directory =
+                          /*var directory =
                               await getApplicationDocumentsDirectory();
                           _currentVideoIndex.value = index;
                           download(
@@ -718,7 +718,7 @@ class _VideoScreenState extends State<VideoScreen> {
                               savePath:
                                   "${directory.path}/${map['name'].replaceAll(' ', '')}.mp4",
                               topicName: map['name'],
-                              courseName: widget.courseName);
+                              courseName: widget.courseName);*/
                         },
                         child: _currentVideoIndex.value == index
                             ? Stack(

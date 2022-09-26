@@ -8,6 +8,7 @@ import 'package:cloudyml_app2/widgets/image_msg_tile.dart';
 import 'package:cloudyml_app2/widgets/message_tile.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:file_picker_cross/file_picker_cross.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -16,12 +17,13 @@ import 'package:fluttertoast/fluttertoast.dart';
 import "package:image_picker/image_picker.dart";
 import 'dart:io';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:record/record.dart';
 import 'package:badges/badges.dart';
 import 'package:lottie/lottie.dart';
 import '../widgets/assignment_bottomsheet.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 
 class ChatScreen extends StatefulWidget {
   final groupData;
@@ -50,7 +52,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
   String? pickedFileName;
 
-  Directory? appStorage;
+  String appStorage = "temp";
 
   int count = 0;
 
@@ -83,6 +85,7 @@ class _ChatScreenState extends State<ChatScreen> {
   //Global variables to hold tagImage and tagName of tag
   List<String> tagImages = [];
   List<String> tagNames = [];
+
 
   ///This mehtod adds Images and Names to be used for to [tagNames] and [tagImages]
   ///Group members for UI of list of tags
@@ -223,25 +226,28 @@ class _ChatScreenState extends State<ChatScreen> {
 
   //image picker from camera logic
   Future getImage() async {
-    //to get the image from galary
-    ImagePicker _picker = ImagePicker();
-
-    await _picker.pickImage(source: ImageSource.camera).then((xFile) {
-      if (xFile != null) {
-        pickedFile = File(xFile.path);
-        pickedFileName = xFile.name.toString();
-        uploadFile("image");
-      }
-    });
+    FilePickerCross result = await FilePickerCross.importFromStorage(
+        type: FileTypeCross.any,
+        fileExtension: 'jpg, jpeg, png, bmp, svg'
+    );
+    if (result != null) {
+      pickedFile = new File(result.path!!);
+      pickedFileName = result.fileName;
+      uploadFile("image");
+    }
   }
 
   //file picker logic
   Future getFile() async {
-    FilePickerResult? result = await FilePicker.platform.pickFiles();
+    FilePickerCross result = await FilePickerCross.importFromStorage(
+        type: FileTypeCross.any,
+        fileExtension: 'txt, md'
+    );
     if (result != null) {
-      File a = File(result.files.single.path.toString());
-      pickedFile = a;
-      pickedFileName = result.names[0].toString();
+      pickedFile = new File(result.path!!);
+      pickedFileName = result.fileName;
+      result.saveToPath(path: "/rajesh/files/"+result.fileName.toString());
+      String? pathForExports = await result.exportToStorage();
       uploadFile("file");
     }
   }
@@ -264,7 +270,7 @@ class _ChatScreenState extends State<ChatScreen> {
                 ? "audio"
                 : "file",
       });
-      var ref = FirebaseStorage.instance
+      var fbstorage = FirebaseStorage.instance
           .ref()
           .child(type == "image"
               ? "images"
@@ -277,12 +283,13 @@ class _ChatScreenState extends State<ChatScreen> {
       //   {'time': FieldValue.serverTimestamp()},
       // );
 
-      var uploadTask = await ref.putFile(pickedFile!);
+      var uploadTask = await fbstorage.putFile(pickedFile!);
 
       String fileUrl = await uploadTask.ref.getDownloadURL();
 
       await sentData.update({"link": fileUrl});
     } catch (e) {
+      print("****** $e *****");
       Fluttertoast.showToast(msg: e.toString());
     }
   }
@@ -317,7 +324,7 @@ class _ChatScreenState extends State<ChatScreen> {
     if (await Record().hasPermission()) {
       isRecording = true;
       await record.start(
-        path: appStorage!.path.toString() +
+        path: appStorage +
             "/audio_${DateTime.now().millisecondsSinceEpoch}.m4a",
         encoder: AudioEncoder.AAC,
         bitRate: 128000,
@@ -374,15 +381,10 @@ class _ChatScreenState extends State<ChatScreen> {
             ),
           );
         });
-    //To bring latest msg on top
-    // await _firestore
-    //     .collection('groups')
-    //     .doc(widget.groupData!["id"])
-    //     .update({'time': FieldValue.serverTimestamp()});
   }
 
   //getting path to app's internal storage
-  Future getStoragePath() async {
+  /*Future getStoragePath() async {
     var s;
     if (await Permission.storage.request().isGranted) {
       s = await getExternalStorageDirectory();
@@ -390,18 +392,14 @@ class _ChatScreenState extends State<ChatScreen> {
     setState(() {
       appStorage = s;
     });
-  }
+  }*/
 
   // void showTags() {
   //   _message.text;
   // }
 
   @override
-  void initState() {
-    // TODO: implement initState
-    // _message.addListener();
-
-    getStoragePath();
+  Future<void> initState() async {
     _scrollController.addListener(() {
       if (_scrollController.offset >=
               (_scrollController.position.maxScrollExtent) &&
@@ -416,6 +414,19 @@ class _ChatScreenState extends State<ChatScreen> {
   void dispose() {
     record.dispose();
     super.dispose();
+  }
+
+  Future<void> initFirebase()
+  async {
+    await Firebase.initializeApp(options: FirebaseOptions(
+        apiKey: "AIzaSyBdAio1wI3RVwl32RoKE7F9GNG_oWBpfbM",
+        appId: "1:67056708090:web:f4a43d6b987991016ddc43",
+        messagingSenderId: "67056708090",
+        projectId: "cloudyml-app",
+        databaseURL: "https://cloudyml-app-default-rtdb.firebaseio.com",
+        authDomain: "cloudyml-app.firebaseapp.com",
+        storageBucket: "cloudyml-app.appspot.com",
+        measurementId: "G-PDLLH7550S"));
   }
 
   @override
@@ -511,9 +522,7 @@ class _ChatScreenState extends State<ChatScreen> {
         //   )
         // ],
       ),
-      body: appStorage == null
-          ? const Center(child: CircularProgressIndicator())
-          : SingleChildScrollView(
+      body: SingleChildScrollView(
               reverse: true,
               child: Column(
                 children: [
@@ -717,12 +726,10 @@ class _ChatScreenState extends State<ChatScreen> {
                             controller: _message,
                             autocorrect: true,
                             cursorColor: Colors.purple,
-                            
                             decoration: InputDecoration(
                               contentPadding: EdgeInsets.fromLTRB(10, 4, 0, 5),
                               // all(4),
                               suffixIcon: Container(
-                                
                                 width: width * 0.23,
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.end,
@@ -810,7 +817,7 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   Widget messages(Size size, Map<String, dynamic> map, BuildContext context,
-      Directory? appStorage, String currentTag) {
+      String appStorage, String currentTag) {
     //help us to show the text and the image in perfect alignment
     return map['type'] == "text" //checks if our msg is text or image
         ? MessageTile(size, map, widget.userData["name"], currentTag)

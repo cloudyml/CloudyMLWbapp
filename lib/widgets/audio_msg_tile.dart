@@ -21,10 +21,10 @@ class _AudioMsgTileState extends State<AudioMsgTile> {
   var filePath;
 
   checkFileExists(fileName) async {
-    final file = File("${widget.appStorage!.path}/$fileName");
+    final file = File("${widget.appStorage}/$fileName");
 
     if (!file.existsSync()) {
-      final file = File("${widget.appStorage!.path}/$fileName");
+      final file = File("${widget.appStorage}/$fileName");
       await downloadFile(widget.map!["link"], fileName, file);
       setState(() {
         filePath = file.path;
@@ -50,14 +50,6 @@ class _AudioMsgTileState extends State<AudioMsgTile> {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(25),
           color: Color(0xFF7860DC)
-          // gradient: const RadialGradient(
-          //     center: Alignment.topRight,
-          //     // near the top right
-          //     radius: 6,
-          //     colors: [
-          //       Colors.purple,
-          //       Colors.blue,
-          //     ]),
         ),
         alignment: Alignment.center,
         child: widget.map!["link"] != ""

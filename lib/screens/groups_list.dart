@@ -43,6 +43,7 @@ class _GroupsListState extends State<GroupsList> {
       // print("user data-- ${value.data()}");
       setState(() {
         userData = value.data();
+        print(userData);
       });
     });
   }

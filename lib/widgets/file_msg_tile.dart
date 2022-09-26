@@ -9,7 +9,7 @@ class FileMsgTile extends StatefulWidget {
   final size;
   final Map<String, dynamic>? map;
   final String? displayName;
-  final Directory? appStorage;
+  final String? appStorage;
 
   FileMsgTile({this.size, this.map, this.displayName, this.appStorage});
 
@@ -21,10 +21,10 @@ class _FileMsgTileState extends State<FileMsgTile> {
   var filePath;
 
   String? checkFileExists(fileName) {
-    final file = File("${widget.appStorage!.path}/$fileName");
+    final file = File("${widget.appStorage}/$fileName");
 
     if (!file.existsSync()) {
-      final file = File("${widget.appStorage!.path}/$fileName");
+      final file = File("${widget.appStorage}/$fileName");
       downloadFile(widget.map!["link"], fileName, file);
       return null;
     } else {
@@ -90,16 +90,6 @@ class _FileMsgTileState extends State<FileMsgTile> {
                                 style: const TextStyle(fontSize: 15),
                                 overflow: TextOverflow.ellipsis),
                           ),
-                          // filePath == null
-                          //     ? const CircleAvatar(
-                          //         child: Icon(
-                          //           Icons.download,
-                          //           color: Colors.white,
-                          //         ),
-                          //         backgroundColor:
-                          //             Color.fromARGB(255, 141, 5, 136),
-                          //       )
-                          //     : Container()
                         ],
                       ),
                       decoration: BoxDecoration(

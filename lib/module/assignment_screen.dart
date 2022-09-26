@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
 import 'package:open_file/open_file.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:path_provider/path_provider.dart';
+//import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:video_player/video_player.dart';
 import '../globals.dart';
@@ -136,7 +136,7 @@ class _AssignmentScreenState extends State<AssignmentScreen> {
   }
 
   void downloadAssignment(String id) async {
-    try {
+    /*try {
       final storageRef = FirebaseStorage.instance.ref();
       final assignRef = storageRef.child("Assignments/${id}.ipynb");
 
@@ -172,7 +172,7 @@ class _AssignmentScreenState extends State<AssignmentScreen> {
       // }
     } catch (error) {
       showToast(error.toString());
-    }
+    }*/
   }
 
   void downloadOutputPDF(String id) async {
@@ -182,7 +182,7 @@ class _AssignmentScreenState extends State<AssignmentScreen> {
 
       print(outpuTPDFRef);
 
-      final appDocDir = await getExternalStorageDirectory();
+      /*final appDocDir = await getExternalStorageDirectory();
       final filePath = "${appDocDir!.path}/${id}.pdf";
       final file = File(filePath);
 
@@ -210,6 +210,8 @@ class _AssignmentScreenState extends State<AssignmentScreen> {
       //     // TODO: Handle this case.
       //     break;
       // }
+
+       */
     } catch (error) {
       showToast(error.toString());
     }

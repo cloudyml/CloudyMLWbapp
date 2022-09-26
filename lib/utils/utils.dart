@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_styled_toast/flutter_styled_toast.dart';
-import 'package:path_provider/path_provider.dart';
+//import 'package:path_provider/path_provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../module/pdfview_screen.dart';
@@ -33,7 +33,7 @@ class Utils {
   }
 
   static Future _downloadPdf(String pdfName, BuildContext context) async {
-    try {
+    /*try {
       final storageRef = FirebaseStorage.instance.ref();
       final pdfRef = storageRef.child("Interview's Q&A/${pdfName}.pdf");
 
@@ -54,6 +54,6 @@ class Utils {
       //     // TODO: Handle this case.
     } catch (error) {
       showToast(error.toString());
-    }
+    }*/
   }
 }
